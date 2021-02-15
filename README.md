@@ -1,16 +1,21 @@
 # BatixWebShop
 
-# install yarn
-npm install --global yarn
+## Running the App
 
-# install dependencies
-yarn install
+### Production:
 
-# serve with hot reload at localhost:3000
-yarn dev
-
-# prepare for production via webpack
-yarn build
-
-# generate static pages via nuxt.js for static hosting
-nuxt generate
+Docker run:
+```
+docker run -d -p 8080:8080 --name batixwebshop swissbuechi/batixwebshop:latest
+```
+Docker-Compose:
+```
+docker-compose.exe -f docker-compose.yml up -d
+```
+### Dev:
+```
+npm install
+```
+```
+npm run dev
+```

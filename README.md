@@ -1,9 +1,13 @@
 # BatixWebShop
 
-Production:
+### Production:
+```
 docker-compose.exe -f docker-compose.yml up -d
-
-Dev:
+```
+### Dev:
+```
 npm install
-
+```
+```
 npm run dev
+```

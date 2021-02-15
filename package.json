@@ -1,8 +1,8 @@
 {
-  "name": "vuemmerce",
-  "version": "0.9.5",
-  "description": "Responsive ecommerce template built with Vue.js and Nuxt.js",
-  "author": "ivan lori <ivan.lori@protonmail.com>",
+  "name": "batixwebshop",
+  "version": "0.1.0",
+  "description": "Batix Web Shop with Vue.js",
+  "author": "BBH AG",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ivanlori/Vuemmerce.git"
+    "url": "https://github.com/swissbuechi/BatixWebShop"
   },
   "keywords": [
     "css",
@@ -26,14 +26,14 @@
   "license": "MIT",
   "dependencies": {
     "@nuxtjs/font-awesome": "^1.0.4",
+    "axios": "^0.21.1",
     "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.26.0",
     "bulma": "^0.9.1",
-    "nuxt": "^2.8.1",
+    "nuxt": "^2.15.0",
     "vue": "^2.6.10",
     "vue-router": "^3.1.5",
-    "vuex": "^3.1.1",
-    "axios": "^0.20.0"
+    "vuex": "^3.1.1"
   },
   "devDependencies": {
     "@babel/preset-env": "~7.12.1",

@@ -130,13 +130,13 @@ export default {
       this.$store.commit('setAddedBtn', data);
     },
     saveToFavorite (id) {
-      let isUserLogged = this.$store.state.userInfo.isLoggedIn;
+      //let isUserLogged = this.$store.state.userInfo.isLoggedIn;
 
-      if (isUserLogged) {
+      //if (isUserLogged) {
         this.$store.commit('addToFavourite', id);
-      } else {
-        this.$store.commit('showLoginModal', true);
-      }
+      //} else {
+        //this.$store.commit('showLoginModal', true);
+      //}
     },
     removeFromFavourite (id) {
       this.$store.commit('removeFromFavourite', id);

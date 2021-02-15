@@ -1,8 +1,8 @@
 version: '3.8'
 services:
   batixwebshop:
-    #image: swissbuechi/batixwebshop:latest
-    image: batixwebshop:latest
+    image: swissbuechi/batixwebshop:latest
+    #image: batixwebshop:latest
     container_name: batixwebshop
     ports:
       - 8080:8080

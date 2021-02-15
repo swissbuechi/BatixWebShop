@@ -86,4 +86,9 @@ export default {
 .card {
   margin: 10px;
 }
+
+.columns {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
 </style>

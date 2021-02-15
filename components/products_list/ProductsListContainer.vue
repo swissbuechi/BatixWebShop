@@ -28,7 +28,6 @@ export default {
       id: "",
       noProductLabel: "No product found",
       productsFiltered: [],
-      reloadProducts: true,
     };
   },
 
@@ -53,7 +52,6 @@ export default {
       ));
     },
     loadProducts() {
-      if (this.reloadProducts) {
         let item = {
           id: 4,
           title: "Product Test",
@@ -79,8 +77,6 @@ export default {
         //  //console.log(product.id);
         //  this.$store.commit("addToProducts", product);
         //});
-        this.reloadProducts = false;
-      }
     },
   },
   created() {

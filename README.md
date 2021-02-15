@@ -1,5 +1,8 @@
 # BatixWebShop
 
+# install yarn
+npm install --global yarn
+
 # install dependencies
 yarn install
 

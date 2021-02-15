@@ -114,7 +114,7 @@ div.navbar-end:nth-child(4) {
   margin-top: 20px;
 }
 
-.header-title{
+.header-title {
   width: 30%;
 }
 

@@ -14,7 +14,8 @@
 </template>
 
 <script>
-import ProductRepository from "../repository/ProductRepository";
+import ProductRepository from "../repository/ProductRepository"
+
 import VmProducts from "../Products";
 import { getByTitle } from "@/assets/filters";
 
@@ -28,7 +29,8 @@ export default {
       id: "",
       noProductLabel: "No product found",
       productsFiltered: [],
-      reloadProducts: true,
+      artikel: [],
+      listOfProducts: [],
     };
   },
 
@@ -37,14 +39,15 @@ export default {
       if (this.$store.state.userInfo.hasSearched) {
         return this.getProductByTitle();
       } else {
-        return this.$store.state.products;
+        return this.listOfProducts;
       }
     },
   },
 
   methods: {
     getProductByTitle() {
-      let listOfProducts = this.$store.state.products,
+      //this.listOfProducts = ProductRepository.getProducts(),
+      //let listOfProducts = this.$store.state.products,
         titleSearched = this.$store.state.userInfo.productTitleSearched;
 
       return (this.productsFiltered = getByTitle(
@@ -52,39 +55,6 @@ export default {
         titleSearched
       ));
     },
-    loadProducts() {
-      if (this.reloadProducts) {
-        let item = {
-          id: 4,
-          title: "Product Test",
-          description:
-            "elit",
-          price: 503,
-          ratings: 3,
-          reviews: 5,
-          isAddedToCart: false,
-          isAddedBtn: false,
-          isFavourite: false,
-          quantity: 1,
-        };
-
-        this.$store.commit("addToProducts", item);
-
-        //let productList = ProductRepository.getProducts();
-        //console.log(productList);
-        //if (productList.length === 0) {
-        //  console.log("Empty");
-        //}
-        //productList.forEach((product) => {
-        //  //console.log(product.id);
-        //  this.$store.commit("addToProducts", product);
-        //});
-        this.reloadProducts = false;
-      }
-    },
-  },
-  created() {
-    this.loadProducts();
   },
 };
 </script>
@@ -92,5 +62,10 @@ export default {
 <style lang="scss" scoped>
 .card {
   margin: 10px;
+}
+
+.columns {
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 </style>

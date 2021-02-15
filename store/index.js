@@ -3,17 +3,22 @@ export const state = () => ({
     {
       id: 1,
       title: 'Product 1',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      description: 'Hans',
       price: 50,
+      ratings: 3,
+      reviews: 5,
       isAddedToCart: false,
       isAddedBtn: false,
       isFavourite: false,
       quantity: 1
-    }, {
+    },
+    {
       id: 2,
-      title: 'Product 1',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      price: 50,
+      title: 'Product 2',
+      description: 'Peter',
+      price: 35,
+      ratings: 5,
+      reviews: 10,
       isAddedToCart: false,
       isAddedBtn: false,
       isFavourite: false,
@@ -72,6 +77,12 @@ export const getters = {
 }
 
 export const mutations = {
+  addToProducts: (state, product) => {
+    if (state.products.some(data => data.id === product.id)) {
+    } else {
+      state.products.push(product)
+    }
+  },
   addToCart: (state, id) => {
     state.products.forEach(el => {
       if (id === el.id) {

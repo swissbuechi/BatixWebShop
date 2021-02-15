@@ -21,9 +21,13 @@
 
       <div class="navbar-menu is-active">
         <div class="navbar-start">
-          <div class="navbar-item field"></div>
+          <div class="navbar-item field">
+            <VmSearch></VmSearch>
+          </div>
         </div>
-        <h1 class="header-title">BBH AG Webshop</h1>
+        <div class="header-title">
+          <h1>BBH AG Webshop</h1>
+        </div>
         <div class="navbar-end">
           <div class="navbar-item social">
             <a href="#" class="icon" :title="facebookTooltip">
@@ -65,18 +69,24 @@
 
 <script>
 import VmMenu from "../menu/Menu";
+import VmSearch from "../search/Search";
 
 export default {
   name: "VmHeader",
 
   data() {
     return {
+      linkedinTooltip: "Follow us on Linkedin",
+      facebookTooltip: "Follow us on Facebook",
+      twitterTooltip: "Follow us on Twitter",
+      instagramTooltip: "Follow us on Instagram",
       isCheckoutActive: false,
       isMenuOpen: false,
     };
   },
 
   components: {
+    VmSearch,
     VmMenu,
   },
 
@@ -95,13 +105,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-div.navbar-end:nth-child(4){
-  display: none;
+// hide login
+div.navbar-end:nth-child(4) {
+  //display: none;
 }
 
-.header-title {
+.header-title h1 {
   margin-top: 20px;
+}
+
+.header-title{
+  width: 30%;
 }
 
 .title {

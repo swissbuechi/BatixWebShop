@@ -51,35 +51,32 @@ export default {
         titleSearched
       ));
     },
+    loadProductsTest() {
+      let item = {
+        id: 4,
+        title: "Product Test",
+        description: "elit",
+        price: 503,
+        ratings: 3,
+        reviews: 5,
+        isAddedToCart: false,
+        isAddedBtn: false,
+        isFavourite: false,
+        quantity: 1,
+      };
+      this.$store.commit("addToProducts", item);
+    },
     loadProducts() {
-        let item = {
-          id: 4,
-          title: "Product Test",
-          description:
-            "elit",
-          price: 503,
-          ratings: 3,
-          reviews: 5,
-          isAddedToCart: false,
-          isAddedBtn: false,
-          isFavourite: false,
-          quantity: 1,
-        };
-
-        this.$store.commit("addToProducts", item);
-
-        //let productList = ProductRepository.getProducts();
-        //console.log(productList);
-        //if (productList.length === 0) {
-        //  console.log("Empty");
-        //}
-        //productList.forEach((product) => {
-        //  //console.log(product.id);
-        //  this.$store.commit("addToProducts", product);
-        //});
+      let productList = ProductRepository.getProducts();
+      console.log(productList);
+      productList.forEach((product) => {
+        console.log(product.id);
+        this.$store.commit("addToProducts", product);
+      });
     },
   },
   created() {
+    this.loadProductsTest();
     this.loadProducts();
   },
 };

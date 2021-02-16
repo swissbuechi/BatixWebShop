@@ -148,14 +148,14 @@ export const mutations = {
 
 
 export const actions = {
-  async getProducts({ commit }) {
+  getProducts:async ({ commit }) =>{
     const res = await ProductRepository.getProducts();
     commit("setProducts", res);
   },
-  async getProduct({ commit }) {
+  getProduct:async({ commit }) =>{
     const res = await ProductRepository.getProducts();
     res.forEach((product) => {
-    commit("addToProducts", product);
+      commit("addToProducts", product);
     });
   }
 }

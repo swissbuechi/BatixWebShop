@@ -25,7 +25,7 @@ export default {
                     products.push(product);
                 });
             });
-            //console.log(products)
+        //console.log(products)
         return products;
     }
     ,

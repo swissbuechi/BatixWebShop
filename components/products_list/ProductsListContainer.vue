@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import ProductRepository from "../repository/ProductRepository";
 import VmProducts from "../Products";
 import { getByTitle } from "@/assets/filters";
 
@@ -51,33 +50,11 @@ export default {
         titleSearched
       ));
     },
-    loadProductsTest() {
-      let item = {
-        id: 4,
-        title: "Product Test",
-        description: "elit",
-        price: 503,
-        ratings: 3,
-        reviews: 5,
-        isAddedToCart: false,
-        isAddedBtn: false,
-        isFavourite: false,
-        quantity: 1,
-      };
-      this.$store.commit("addToProducts", item);
-    },
-    loadProducts() {
-      let productList = ProductRepository.getProducts();
-      console.log(productList);
-      productList.forEach((product) => {
-        console.log(product.id);
-        this.$store.commit("addToProducts", product);
-      });
-    },
   },
   created() {
-    this.loadProductsTest();
-    this.loadProducts();
+    this.$store.dispatch("getProducts");
+  },
+  mounted() {
   },
 };
 </script>

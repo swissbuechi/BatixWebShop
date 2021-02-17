@@ -1,25 +1,8 @@
+import ProductRepository from "../components/repository/ProductRepository";
+
+
 export const state = () => ({
-  products: [
-    {
-      id: 1,
-      title: 'Product 1',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      price: 50,
-      isAddedToCart: false,
-      isAddedBtn: false,
-      isFavourite: false,
-      quantity: 1
-    }, {
-      id: 2,
-      title: 'Product 1',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      price: 50,
-      isAddedToCart: false,
-      isAddedBtn: false,
-      isFavourite: false,
-      quantity: 1
-    },
-  ],
+  products: [],
   userInfo: {
     isLoggedIn: false,
     isSignedUp: false,
@@ -72,6 +55,21 @@ export const getters = {
 }
 
 export const mutations = {
+  loadProducts: (state, res) => {
+    const {
+      product
+    } = res;
+    state.products.push(product)
+  },
+  addToProducts: (state, product) => {
+    if (state.products.some(data => data.id === product.id)) {
+    } else {
+      state.products.push(product)
+    }
+  },
+  setProducts: (state, prod) => {
+    state.products = prod;
+  },
   addToCart: (state, id) => {
     state.products.forEach(el => {
       if (id === el.id) {
@@ -147,7 +145,31 @@ export const mutations = {
     state.authUser = authUser
   }
 }
+
+
+export const actions = {
+  getProducts:async ({ commit }) =>{
+    const res = await ProductRepository.getProducts();
+    commit("setProducts", res);
+  },
+  getProduct:async({ commit }) =>{
+    const res = await ProductRepository.getProducts();
+    res.forEach((product) => {
+      commit("addToProducts", product);
+    });
+  }
+}
+
 /*
+
+export const actions = {
+  async getProducts({
+    commit
+  }) {
+    commit('loadProducts', await ProductRepository.getProducts());
+  }
+}
+
 export const actions = {
   async nuxtServerInit({ commit }) {
     const res = await this.$axios.get("/api/current_user")

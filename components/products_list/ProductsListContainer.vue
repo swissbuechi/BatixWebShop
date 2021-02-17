@@ -10,23 +10,10 @@
     <div class="section" v-if="products.length === 0">
       <p>{{ noProductLabel }}</p>
     </div>
-    <div class="row">
-      <div class="artikel-liste">
-        <label>Artikel:</label>
-        <select v-model="bestellung_artikel">
-          <option v-for="a in artikel" :key="a.ID" :value="a.ID">
-            Beschreibung: {{ a.Beschreibung }}, zum Preis pro Stück:
-            {{ a.Preis }}
-          </option>
-        </select>
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
-import api from "../api";
-
 import VmProducts from "../Products";
 import { getByTitle } from "@/assets/filters";
 
@@ -38,9 +25,8 @@ export default {
   data() {
     return {
       id: "",
-      noProductLabel: "No product found",
+      noProductLabel: "Loading Products",
       productsFiltered: [],
-      artikel: [],
     };
   },
 
@@ -64,18 +50,11 @@ export default {
         titleSearched
       ));
     },
-    ladeArtikel() {
-      api
-        .get("artikel/", {
-          params: { count: 50 },
-        })
-        .then((response) => {
-          this.artikel = response.data;
-        });
-    },
   },
   created() {
-    this.ladeArtikel();
+    this.$store.dispatch("getProducts");
+  },
+  mounted() {
   },
 };
 </script>
@@ -89,5 +68,4 @@ export default {
   margin-top: 12px;
   margin-bottom: 12px;
 }
-
 </style>

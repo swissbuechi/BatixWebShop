@@ -26,7 +26,7 @@ export default {
     return {
       id: "",
       noProductLabel: "Loading Products",
-      productsFiltered: []
+      productsFiltered: [],
     };
   },
 

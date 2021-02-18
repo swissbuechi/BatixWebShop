@@ -1,8 +1,21 @@
 <template>
   <div class="section">
     <div class="card is-clearfix columns">
-      <figure class="card-image is-480x480 column is-one-thirds">
+      <figure v-id="product-image" class="card-image is-480x480 column is-one-thirds">
         <img src="https://bulma.io/images/placeholders/480x480.png" />
+
+       <!-- <div v-if="product.title.indexOf('Rot') !== -1">
+          <img src="https://bulma.io/images/placeholders/480x480.png" />
+        </div> -->
+
+        <!-- <div v-if="product.title.indexOf('Grün') !== -1">
+          <img src="../static/images/green.png" />
+        </div>
+
+        <div v-if="product.title.indexOf('Blau') !== -1">
+          <img src="../static/images/blue.png" />
+        </div> -->
+
       </figure>
       <div class="card-content column is-two-thirds">
         <div class="card-content__title">

@@ -26,7 +26,7 @@ export default {
     return {
       id: "",
       noProductLabel: "Loading Products",
-      productsFiltered: [],
+      productsFiltered: []
     };
   },
 
@@ -50,11 +50,6 @@ export default {
         titleSearched
       ));
     },
-  },
-  created() {
-    this.$store.dispatch("getProducts");
-  },
-  mounted() {
   },
 };
 </script>

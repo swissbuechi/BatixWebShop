@@ -111,6 +111,10 @@ export default {
 		},
 		onPrevBtn () {
 			this.isCheckoutSection = false;
+		},
+		order() {
+			//this.$store.getters.productsAdded.forEach(this.products : )
+
 		}
 	}
 }

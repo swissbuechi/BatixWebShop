@@ -61,7 +61,8 @@
         </div>
       </div>
     </div>
-    <!--
+    <!-- Disable Products Details -->
+    
     <nuxt-link
       class="details"
       :to="{
@@ -77,7 +78,7 @@
       }"
     >
     </nuxt-link>
-    -->
+   
   </div>
 </template>
 

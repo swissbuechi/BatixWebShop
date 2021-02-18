@@ -3,30 +3,32 @@ import api from "../api";
 export default {
 
     getProducts() {
-        let products = [];
+        let tempProducts = [];
         api
             .get("artikel/", {
                 params: { count: 50 },
             })
             .then((response) => {
                 let artikel = response.data;
+                let nr = 0;
                 artikel.forEach((a) => {
-                    let product = {};
-                    product.id = a.ID;
+                    let tempProduct = {};
+                    tempProduct.id = nr++;
+                    tempProduct.nr = a.ID;
                     //product.title = a.Name;
-                    product.price = a.Preis;
-                    product.title = a.Beschreibung;
+                    tempProduct.price = a.Preis;
+                    tempProduct.title = a.Beschreibung;
                     //product.description = a.Beschreibung;
-                    product.isAddedToCart = false;
-                    product.isAddedBtn = false;
-                    product.isFavourite = false;
-                    product.quantity = 1;
+                    tempProduct.isAddedToCart = false;
+                    tempProduct.isAddedBtn = false;
+                    tempProduct.isFavourite = false;
+                    tempProduct.quantity = 1;
 
-                    products.push(product);
+                    tempProducts.push(tempProduct);
                 });
             });
         //console.log(products)
-        return products;
+        return tempProducts;
     }
     ,
     getProductsTest() {

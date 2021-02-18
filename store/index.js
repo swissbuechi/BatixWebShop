@@ -3,6 +3,7 @@ import ProductRepository from "../components/repository/ProductRepository";
 
 export const state = () => ({
   products: [],
+  productsLoaded: undefined,
   userInfo: {
     isLoggedIn: false,
     isSignedUp: false,
@@ -18,6 +19,9 @@ export const state = () => ({
 })
 
 export const getters = {
+  isProductsLoaded: state => {
+    return state.productsLoaded
+  },
   productsAdded: state => {
     return state.products.filter(el => {
       return el.isAddedToCart;
@@ -69,6 +73,9 @@ export const mutations = {
   },
   setProducts: (state, prod) => {
     state.products = prod;
+  },
+  setProductsLoaded: (state, prod) => {
+    state.productsLoaded = true;
   },
   addToCart: (state, id) => {
     state.products.forEach(el => {
@@ -148,15 +155,9 @@ export const mutations = {
 
 
 export const actions = {
-  getProducts:async ({ commit }) =>{
+  getProducts: async ({ commit }) => {
     const res = await ProductRepository.getProducts();
     commit("setProducts", res);
-  },
-  getProduct:async({ commit }) =>{
-    const res = await ProductRepository.getProducts();
-    res.forEach((product) => {
-      commit("addToProducts", product);
-    });
   }
 }
 

@@ -11,7 +11,7 @@
 					<div class="box" v-for="product in products" :key="product.id">
 						<button class="is-pulled-right button is-info is-inverted" @click="removeFromCart(product.id)">{{ removeLabel }}</button>
 						<p>{{ product.title }}  {{ product.quantity > 0 ?  ` - Quantity: ${product.quantity}` : ''}}</p>
-						<p>{{ product.price }} &euro;</p>
+						<p>CHF {{ product.price }}</p>
 					</div>
 					<div v-if="products.length === 0">
 						<p>{{ cartEmptyLabel }}</p>
@@ -73,12 +73,14 @@ export default {
 
 				finalPrice = pricesArray.reduce((a, b) => a + b, 0); // sum the prices
 				
+				finalPrice = parseFloat(finalPrice.toFixed(4));;
+
 				if (totalProducts > 1) { // set plural or singular
 					productLabel = 'products';
 				} else {
 					productLabel = 'product';
 				}
-				return `Buy ${totalProducts} ${productLabel} at ${finalPrice}€`;
+				return `Buy ${totalProducts} ${productLabel} at CHF ${finalPrice}`;
 		},
 		isUserLoggedIn () {
 			return this.$store.getters.isUserLoggedIn;
@@ -102,12 +104,12 @@ export default {
 			this.$store.commit('setAddedBtn', data);
 		},
 		onNextBtn () {
-			//if (this.isUserLoggedIn) {
+			if (this.isUserLoggedIn) {
 				this.isCheckoutSection = true;
-			//} else {
-			//	this.$store.commit('showCheckoutModal', false);
-			//	this.$store.commit('showLoginModal', true);
-			//}
+			} else {
+				this.$store.commit('showCheckoutModal', false);
+				this.$store.commit('showLoginModal', true);
+			}
 		},
 		onPrevBtn () {
 			this.isCheckoutSection = false;

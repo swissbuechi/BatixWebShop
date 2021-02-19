@@ -1,6 +1,7 @@
 <template>
   <div class="footer">
         <h1>Modern Webshop by BBH AG</h1>
+        <p>Copyright BBH AG</p>
   </div>
 </template>
 

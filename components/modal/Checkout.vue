@@ -30,6 +30,9 @@
 </template>
 
 <script>
+
+import ProductRepository from "../repository/ProductRepository";
+
 export default {
 	name: 'checkout',
     
@@ -105,6 +108,12 @@ export default {
 		},
 		onNextBtn () {
 			if (this.isUserLoggedIn) {
+				let tempProductsAdded = this.$store.getters.productsAdded;
+				console.log("Products Added: " + tempProductsAdded)
+				tempProductsAdded.forEach((el) => {
+					console.log("Products Added Nr: " + el.nr)
+				})
+				this.order(tempProductsAdded)
 				this.isCheckoutSection = true;
 			} else {
 				this.$store.commit('showCheckoutModal', false);
@@ -114,9 +123,8 @@ export default {
 		onPrevBtn () {
 			this.isCheckoutSection = false;
 		},
-		order() {
-			//this.$store.getters.productsAdded.forEach(this.products : )
-
+		order(tempProductsAdded) {
+			ProductRepository.order(tempProductsAdded);
 		}
 	}
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
         <h1>Modern Webshop by BBH AG</h1>
-        <p>Copyright BBH AG</p>
+        <p>&#169 BBH AG | 2021</p>
   </div>
 </template>
 

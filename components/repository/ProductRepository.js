@@ -27,7 +27,7 @@ export default {
             status: "177A5357E69",
             gebinde: "17618507373",
             artikel: tempArtikel.nr,
-            anzahl: 1,
+            anzahl: tempArtikel.quantity,
         };
         return api
             .post(
@@ -37,6 +37,7 @@ export default {
             .then((response) => {
                 let order = response.data;
                 console.log("Bestellung ID: " + order.ID)
+                return order.ID;
             });
     },
 

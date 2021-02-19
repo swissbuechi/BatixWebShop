@@ -51,6 +51,12 @@ export default {
       ));
     },
   },
+  created() {
+      if (!this.$store.getters.isProductsLoaded) {
+        this.$store.dispatch("getProducts");
+      }
+      //
+    },
 };
 </script>
 

@@ -1,8 +1,7 @@
 <template>
   <div>
     <div class="card-image">
-      <figure class="image is-4by3">
-        <!-- <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image"> -->
+      <figure class="image">
 
         <div v-if="product.title.indexOf('Rot') !== -1">
           <img src="../static/images/red.png" />
@@ -71,7 +70,7 @@
         </div>
         <p class="is-pulled-right">
           <span class="title is-4"
-            ><strong>&euro; {{ product.price }}</strong></span
+            ><strong>CHF {{ product.price }}</strong></span
           >
         </p>
       </div>
@@ -174,13 +173,13 @@ export default {
       this.$store.commit("setAddedBtn", data);
     },
     saveToFavorite(id) {
-      //let isUserLogged = this.$store.state.userInfo.isLoggedIn;
+      let isUserLogged = this.$store.state.userInfo.isLoggedIn;
 
-      //if (isUserLogged) {
-      this.$store.commit("addToFavourite", id);
-      //} else {
-      //this.$store.commit('showLoginModal', true);
-      //}
+      if (isUserLogged) {
+        this.$store.commit("addToFavourite", id);
+      } else {
+        this.$store.commit("showLoginModal", true);
+      }
     },
     removeFromFavourite(id) {
       this.$store.commit("removeFromFavourite", id);

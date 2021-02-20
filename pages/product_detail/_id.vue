@@ -1,21 +1,39 @@
 <template>
   <div class="section">
     <div class="card is-clearfix columns">
-      <figure v-id="product-image" class="card-image is-480x480 column is-one-thirds">
-        <img src="https://bulma.io/images/placeholders/480x480.png" />
-
-       <!-- <div v-if="product.title.indexOf('Rot') !== -1">
-          <img src="https://bulma.io/images/placeholders/480x480.png" />
-        </div> -->
-
-        <!-- <div v-if="product.title.indexOf('Grün') !== -1">
-          <img src="../static/images/green.png" />
+      <figure
+        id="product-image"
+        class="card-image is-480x480 column is-one-thirds"
+      >
+        <div
+          v-if="
+            this.$store.getters
+              .getProductById(this.$route.params.id)
+              .title.indexOf('Rot') !== -1
+          "
+        >
+          <img src="../../static/images/red.png" />
         </div>
 
-        <div v-if="product.title.indexOf('Blau') !== -1">
-          <img src="../static/images/blue.png" />
-        </div> -->
+        <div
+          v-if="
+            this.$store.getters
+              .getProductById(this.$route.params.id)
+              .title.indexOf('Grün') !== -1
+          "
+        >
+          <img src="../../static/images/green.png" />
+        </div>
 
+        <div
+          v-if="
+            this.$store.getters
+              .getProductById(this.$route.params.id)
+              .title.indexOf('Blau') !== -1
+          "
+        >
+          <img src="../../static/images/blue.png" />
+        </div>
       </figure>
       <div class="card-content column is-two-thirds">
         <div class="card-content__title">
@@ -95,7 +113,7 @@
         </div>
         <div class="card-content__price is-pulled-left">
           <span class="title is-3"
-            ><strong>{{ product.price }}&euro;</strong></span
+            ><strong>CHF {{ product.price }}</strong></span
           >
         </div>
         <div class="card-content__btn is-pulled-right">
@@ -179,18 +197,18 @@ export default {
       this.$store.commit("quantity", data);
     },
     saveToFavorite(id) {
-      //let isUserLogged = this.$store.state.userInfo.isLoggedIn;
+      let isUserLogged = this.$store.state.userInfo.isLoggedIn;
 
-      //if (isUserLogged) {
-      this.$store.commit("addToFavourite", id);
-      //} else {
-      //  this.$store.commit('showLoginModal', true);
-      //}
+      if (isUserLogged) {
+        this.$store.commit("addToFavourite", id);
+      } else {
+        this.$store.commit("showLoginModal", true);
+      }
     },
     removeFromFavourite(id) {
       this.$store.commit("removeFromFavourite", id);
     },
-  }
+  },
 };
 </script>
 

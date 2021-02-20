@@ -1,38 +1,51 @@
 import api from "../api";
+import store from "../../store";
 
 export default {
 
-    //gebinde: 17618507373
+    //kunde Moritz Bühler: 177B64458D0
+    //status Bestellung erhalten: 177A5357E69
+    //gebinde Kiste 4x4x4: 17618507373
 
-    order() {
+    //bestellposition/
+
+    //  "bestellung_ID":
+    //  "gebinde":
+    //  "artikel":
+    //  "anzahl":
+
+
+    orderProduct(orderId, productsAdded) {
+        let tempArtikelListe = productsAdded;
+        console.log("Artikel liste REST: " + productsAdded);
+        console.log("OrderId REST: " + orderId);
+        tempArtikelListe.forEach((el) => {
+            console.log("Artikel für Bestellung: " + el.nr)
+            let json = {
+                bestellung_ID: orderId,
+                gebinde: "17618507373",
+                artikel: el.nr,
+                anzahl: el.quantity
+            };
+            api.post("bestellposition/",
+                json)
+        })
+    },
+
+    createOrder() {
         let json = {
-            kunde: this.bestellung_kunde,
-            status: this.bestellung_status,
-            gebinde: this.bestellung_gebinde,
-            material: this.bestellung_material,
-            artikel: this.bestellung_artikel,
-            // preis: this.bestellung_preis,
-            anzahl: this.bestellung_anzahl,
+            kunde: "177B64458D0",
+            status: "177A5357E69",
         };
-
-        api
-            // https://external.abbts.ch:50102/abbts/api/ --> Muss nicht angegeben sein, da über ".env" geholt wird.
-            // .get("bestellung/",
-            //     {params: {id: 1}}
-            //     // // "https://26-great-windy-clams.batix.cloud/api/v1/bestellung/",
-            //     // "https://external.abbts.ch:50102/api/Bestellung/",
-            //     // json
-            // )
+        return api
             .post(
-                // "https://26-great-windy-clams.batix.cloud/api/v1/bestellung/",
                 "bestellung/",
                 json
             )
-
             .then((response) => {
-                json.ID = response.data;
-                // json.Bestelldatum = "2021-01-01";
-                this.bestellungen.push(json);
+                let order = response.data;
+                console.log("Bestellung ID: " + order.ID)
+                return order.ID;
             });
     },
 

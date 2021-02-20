@@ -3,7 +3,7 @@ import ProductRepository from "../components/repository/ProductRepository";
 
 export const state = () => ({
   products: [],
-  productsLoaded: undefined,
+  productsLoaded: false,
   userInfo: {
     isLoggedIn: false,
     isSignedUp: false,
@@ -64,12 +64,6 @@ export const mutations = {
       product
     } = res;
     state.products.push(product)
-  },
-  addToProducts: (state, product) => {
-    if (state.products.some(data => data.id === product.id)) {
-    } else {
-      state.products.push(product)
-    }
   },
   setProducts: (state, prod) => {
     state.products = prod;
@@ -158,6 +152,7 @@ export const actions = {
   getProducts: async ({ commit }) => {
     const res = await ProductRepository.getProducts();
     commit("setProducts", res);
+    commit("setProductsLoaded");
   }
 }
 

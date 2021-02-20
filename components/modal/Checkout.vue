@@ -135,15 +135,14 @@ export default {
     async onNextBtn() {
       if (this.isUserLoggedIn) {
         let productsAdded = this.$store.getters.productsAdded;
-        productsAdded.forEach((el) => {
-          console.log("Artikel im shop: " + el.nr);
-        });
-        this.orderId = await this.createOrder();
+        this.orderId = await this.orderProduct(
+          await this.createOrder(),
+          productsAdded
+        );
         console.log("OrderId erhalten: " + this.orderId);
-        this.orderProduct(await this.createOrder(), productsAdded);
         this.isCheckoutSection = true;
-		this.$store.dispatch("getProducts")
-		this.$router.push({name:'index'})
+        this.$store.dispatch("getProducts");
+        this.$router.push({ name: "index" });
       } else {
         this.$store.commit("showCheckoutModal", false);
         this.$store.commit("showLoginModal", true);

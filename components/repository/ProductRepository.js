@@ -17,8 +17,6 @@ export default {
 
     orderProduct(orderId, productsAdded) {
         let tempArtikelListe = productsAdded;
-        console.log("Artikel liste REST: " + productsAdded);
-        console.log("OrderId REST: " + orderId);
         tempArtikelListe.forEach((el) => {
             console.log("Artikel für Bestellung: " + el.nr)
             let json = {
@@ -27,9 +25,11 @@ export default {
                 artikel: el.nr,
                 anzahl: el.quantity
             };
-            api.post("bestellposition/",
-                json)
-        })
+            return api
+                .post("bestellposition/",
+                    json)
+        });
+        return orderId;
     },
 
     createOrder() {
@@ -38,13 +38,10 @@ export default {
             status: "177A5357E69",
         };
         return api
-            .post(
-                "bestellung/",
-                json
-            )
+            .post("bestellung/",
+                json)
             .then((response) => {
                 let order = response.data;
-                console.log("Bestellung ID: " + order.ID)
                 return order.ID;
             });
     },

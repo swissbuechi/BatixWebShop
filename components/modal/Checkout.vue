@@ -142,6 +142,8 @@ export default {
         console.log("OrderId erhalten: " + this.orderId);
         this.orderProduct(await this.createOrder(), productsAdded);
         this.isCheckoutSection = true;
+		this.$store.dispatch("getProducts")
+		this.$router.push({name:'index'})
       } else {
         this.$store.commit("showCheckoutModal", false);
         this.$store.commit("showLoginModal", true);

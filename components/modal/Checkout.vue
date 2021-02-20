@@ -132,14 +132,15 @@ export default {
       this.$store.commit("removeFromCart", id);
       this.$store.commit("setAddedBtn", data);
     },
-    onNextBtn() {
+    async onNextBtn() {
       if (this.isUserLoggedIn) {
-        let tempProductsAdded = this.$store.getters.productsAdded;
-        console.log("Products Added: " + tempProductsAdded);
-        tempProductsAdded.forEach((el) => {
-          console.log("Products Added Nr: " + el.nr);
+        let productsAdded = this.$store.getters.productsAdded;
+        productsAdded.forEach((el) => {
+          console.log("Artikel im shop: " + el.nr);
         });
-        this.orderId = this.order(tempProductsAdded);
+        this.orderId = await this.createOrder();
+        console.log("OrderId erhalten: " + this.orderId);
+        this.orderProduct(await this.createOrder(), productsAdded);
         this.isCheckoutSection = true;
       } else {
         this.$store.commit("showCheckoutModal", false);
@@ -149,8 +150,11 @@ export default {
     onPrevBtn() {
       this.isCheckoutSection = false;
     },
-    order: async (tempProductsAdded) => {
-      return await ProductRepository.order(tempProductsAdded);
+    createOrder: async () => {
+      return await ProductRepository.createOrder();
+    },
+    orderProduct: async (orderId, productsAdded) => {
+      return await ProductRepository.orderProduct(orderId, productsAdded);
     },
   },
 };

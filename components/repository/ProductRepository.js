@@ -7,27 +7,35 @@ export default {
     //status Bestellung erhalten: 177A5357E69
     //gebinde Kiste 4x4x4: 17618507373
 
-    order(productsAdded) {
+    //bestellposition/
 
-        console.log("Products Added: " + productsAdded)
-        productsAdded.forEach((el) => {
-            console.log("Products Added Nr: " + el.nr)
-        })
+    //  "bestellung_ID":
+    //  "gebinde":
+    //  "artikel":
+    //  "anzahl":
+
+
+    orderProduct(orderId, productsAdded) {
         let tempArtikelListe = productsAdded;
-        let tempArtikel;
+        console.log("Artikel liste REST: " + productsAdded);
+        console.log("OrderId REST: " + orderId);
         tempArtikelListe.forEach((el) => {
-            console.log("Artikel im Warenkorb: " + el.id)
-            if (el.id === 0) {
-                console.log("Artikel für Bestellung: " + el.nr)
-                tempArtikel = el;
-            }
+            console.log("Artikel für Bestellung: " + el.nr)
+            let json = {
+                bestellung_ID: orderId,
+                gebinde: "17618507373",
+                artikel: el.nr,
+                anzahl: el.quantity
+            };
+            api.post("bestellposition/",
+                json)
         })
+    },
+
+    createOrder() {
         let json = {
             kunde: "177B64458D0",
             status: "177A5357E69",
-            gebinde: "17618507373",
-            artikel: tempArtikel.nr,
-            anzahl: tempArtikel.quantity,
         };
         return api
             .post(

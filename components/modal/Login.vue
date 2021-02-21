@@ -34,7 +34,7 @@
                 <input 
                   :class="[highlightPasswordWithError ? 'input is-danger' : 'input']"
                   type="password"
-                  placeholder="Your password"
+                  placeholder="Dein Passwort"
                   name="passwordName"
                   v-model="password"
                   @keyup="checkPasswordOnKeyUp(password)"
@@ -52,8 +52,8 @@
           <div v-if="isUserLoggedIn" class="level">
             <div class="level-item has-text-centered">
               <div>
-                <p class="title">Welcome back!</p>
-                <p class="heading">Now you are logged in</p>
+                <p class="title">Willkommen zurück!</p>
+                <p class="heading">Du bist jetzt eingeloggt</p>
               </div>
             </div>
           </div>
@@ -75,14 +75,14 @@ export default {
 
   data () {
     return {
-      modalTitle: 'Log in',
-      modalTitleLoggedIn: 'Welcome!',
-      primaryBtnLabel: 'Log in',
-      emailRequiredLabel: 'Email required',
-      passwordRequiredLabel: 'Password required',
-      emailNotValidLabel: 'Valid email required',
-      btnLoggedInLabel: 'Close',
-      emailPlaceholder: 'Your email',
+      modalTitle: 'Anmelden',
+      modalTitleLoggedIn: 'Willkommen!',
+      primaryBtnLabel: 'Anmelden',
+      emailRequiredLabel: 'E-Mail Adresse notwendig',
+      passwordRequiredLabel: 'Passwort notwendig',
+      emailNotValidLabel: 'Guelltige E-Mail Adresse notwendig',
+      btnLoggedInLabel: 'Schliessen',
+      emailPlaceholder: 'Deine E-Mail Adresse',
       email: '',
       password: '',
       highlightEmailWithError: null,

@@ -1,7 +1,7 @@
 {
   "name": "batixwebshop",
   "version": "0.1.0",
-  "description": "Batix Web Shop with Vue.js",
+  "description": "BBH AG Webshop",
   "author": "BBH AG",
   "scripts": {
     "dev": "nuxt",

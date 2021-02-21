@@ -3,10 +3,10 @@
     <div class="hero-body">
       <div class="container">
         <h1 class="title">
-          Welcome to our new Webshop!
+          Willkommen bei unserem neuen Webshop!
         </h1>
         <h2 class="subtitle">
-          Buy from our SmartFactory!
+          Kaufe Kugeln von unserer SmartFactory!
         </h2>
       </div>
     </div>

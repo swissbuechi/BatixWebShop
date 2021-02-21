@@ -21,8 +21,8 @@ export default {
 
 	data () {
     return {
-      pageTitle: 'Your Wishlist',
-      noProductLabel: 'Your wishlist is empty'
+      pageTitle: 'Deine Wunschliste',
+      noProductLabel: 'Deine Wunschliste ist leer'
     }
   },
 

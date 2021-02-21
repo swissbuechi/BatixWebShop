@@ -62,10 +62,13 @@ export default {
                     //product.title = a.Name;
                     tempProduct.price = a.Preis;
                     tempProduct.title = a.Beschreibung;
+                    tempProduct.description = "";
                     tempProduct.isAddedToCart = false;
                     tempProduct.isAddedBtn = false;
                     tempProduct.isFavourite = false;
                     tempProduct.quantity = 1;
+                    tempProduct.ratings = Math.floor(Math.random() * (5 - 0 + 1)) + 0;
+                    tempProduct.reviews = Math.floor(Math.random() * (5 - 0 + 1)) + 0;
 
                     tempProducts.push(tempProduct);
                 });

@@ -63,30 +63,28 @@
         </div>
         <div class="card-content__text">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud
+            {{product.description}}
           </p>
         </div>
-        <div class="card-content__ratings" v-if="product.rating === 1">
+        <div class="card-content__ratings" v-if="product.ratings === 1">
           <i class="fa fa-star"></i>
         </div>
-        <div class="card-content__ratings" v-else-if="product.rating === 2">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-        </div>
-        <div class="card-content__ratings" v-else-if="product.rating === 3">
-          <i class="fa fa-star"></i>
+        <div class="card-content__ratings" v-else-if="product.ratings === 2">
           <i class="fa fa-star"></i>
           <i class="fa fa-star"></i>
         </div>
-        <div class="card-content__ratings" v-else-if="product.rating === 4">
-          <i class="fa fa-star"></i>
+        <div class="card-content__ratings" v-else-if="product.ratings === 3">
           <i class="fa fa-star"></i>
           <i class="fa fa-star"></i>
           <i class="fa fa-star"></i>
         </div>
-        <div class="card-content__ratings" v-else-if="product.rating === 5">
+        <div class="card-content__ratings" v-else-if="product.ratings === 4">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+        </div>
+        <div class="card-content__ratings" v-else-if="product.ratings === 5">
           <i class="fa fa-star"></i>
           <i class="fa fa-star"></i>
           <i class="fa fa-star"></i>
@@ -98,8 +96,8 @@
             <p>
               <strong>{{
                 product.reviews > 0
-                  ? `${product.reviews} Reviews`
-                  : "No reviews"
+                  ? `${product.reviews} Bewertungen`
+                  : "Keine Bewertungen"
               }}</strong>
             </p>
           </div>
@@ -147,10 +145,10 @@ export default {
 
   data() {
     return {
-      addToCartLabel: "Add to cart",
-      removeFromCartLabel: "Remove from cart",
-      addToFavouriteLabel: "Add to favourite",
-      removeFromFavouriteLabel: "Remove from favourite",
+      addToCartLabel: "Zum Warenkorb hinzufügen",
+      removeFromCartLabel: "Vom Warenkorb entfernen",
+      addToFavouriteLabel: "Zu Favoriten hinzufügen",
+      removeFromFavouriteLabel: "Von Favoriten entfernen",
       product: {},
       selected: 1,
       quantityArray: [],

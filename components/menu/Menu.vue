@@ -22,7 +22,7 @@
 		</div>
 		<div v-if="isUserLoggedIn" class="navbar-item has-dropdown is-hoverable">
 			<a class="navbar-link">
-			Welcome {{ getUserName }}
+			Willkommen {{ getUserName }}
 			</a>
 			<div class="navbar-dropdown is-boxed">
 				<nuxt-link class="navbar-item" :to="{ name: 'user-wishlist' }">
@@ -42,10 +42,10 @@ export default {
 	name: 'VmMenu',
 	data () {
 		return {
-			wishlistLabel: 'Wishlist',
-			logoutLabel: 'Log out',
-			loginLabel: 'Log in',
-			signupLabel: 'Sign up'
+			wishlistLabel: 'Wunschliste',
+			logoutLabel: 'Ausloggen',
+			loginLabel: 'Einloggen',
+			signupLabel: 'Registrieren'
 		}
 	},
 

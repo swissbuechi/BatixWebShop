@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       id: "",
-      noProductLabel: "Loading Products",
+      noProductLabel: "Keine Produkte",
       productsFiltered: [],
     };
   },

@@ -32,7 +32,7 @@
           </div>
         </div>
         <div v-if="isCheckoutSection">
-          <p>Order ID: {{ orderId }} recived!</p>
+          <p>Bestellung: <strong>{{ orderId }}</strong> erfoglreich erhalten!</p>
         </div>
       </section>
       <footer class="modal-card-foot">
@@ -63,10 +63,10 @@ export default {
 
   data() {
     return {
-      modalTitle: "Checkout",
-      removeLabel: "Remove from cart",
-      cartEmptyLabel: "Your cart is empty",
-      closeLabel: "Close",
+      modalTitle: "Kasse",
+      removeLabel: "entfernen",
+      cartEmptyLabel: "Dein Warenkorb ist leer",
+      closeLabel: "Schliessen",
       isCheckoutSection: false,
       orderId: null,
     };
@@ -105,11 +105,11 @@ export default {
 
       if (totalProducts > 1) {
         // set plural or singular
-        productLabel = "products";
+        productLabel = "Produkte";
       } else {
-        productLabel = "product";
+        productLabel = "Produkt";
       }
-      return `Buy ${totalProducts} ${productLabel} at CHF ${finalPrice}`;
+      return `Kaufe ${totalProducts} ${productLabel} für CHF ${finalPrice}`;
     },
     isUserLoggedIn() {
       return this.$store.getters.isUserLoggedIn;
@@ -139,7 +139,6 @@ export default {
           await this.createOrder(),
           productsAdded
         );
-        console.log("OrderId erhalten: " + this.orderId);
         this.isCheckoutSection = true;
         this.$store.dispatch("getProducts");
         this.$router.push({ name: "index" });

@@ -25,9 +25,9 @@ export default {
 	computed: {
 		placeholder () {
 			if (this.$route.path === '/wishlist') {
-				return 'Search in wishlist...';
+				return 'In Wunschliste Suchen...';
 			} else {
-				return 'Search...';
+				return 'Suchen...';
 			}
 		}
 	},

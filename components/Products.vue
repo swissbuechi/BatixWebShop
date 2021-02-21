@@ -64,7 +64,7 @@
           <i v-if="product.ratings === 5" class="fa fa-star"></i>
           <p>
             {{
-              product.reviews > 0 ? `${product.reviews} Reviews` : "No reviews"
+              product.reviews > 0 ? `${product.reviews} Bewertungen` : "Keine Bewertungen"
             }}
           </p>
         </div>
@@ -129,11 +129,11 @@ export default {
 
   data() {
     return {
-      addToCartLabel: "Add to cart",
+      addToCartLabel: "Zum Warenkorb hinzufügen",
       viewDetailsLabel: "Details",
-      removeFromCartLabel: "Remove from cart",
-      addToFavouriteLabel: "Add to favourite",
-      removeFromFavouriteLabel: "Remove from favourite",
+      removeFromCartLabel: "Vom Warenkorb entfernen",
+      addToFavouriteLabel: "Zu Favoriten hinzufügen",
+      removeFromFavouriteLabel: "Von Favoriten entfernen",
       selected: 1,
       quantityArray: [],
     };

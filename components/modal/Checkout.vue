@@ -22,7 +22,7 @@
             <p>
               {{ product.title }}
               {{
-                product.quantity > 0 ? ` - Quantity: ${product.quantity}` : ""
+                product.quantity > 0 ? ` - Anzahl: ${product.quantity}` : ""
               }}
             </p>
             <p>CHF {{ product.price }}</p>
@@ -64,7 +64,7 @@ export default {
   data() {
     return {
       modalTitle: "Kasse",
-      removeLabel: "entfernen",
+      removeLabel: "Produkt entfernen",
       cartEmptyLabel: "Dein Warenkorb ist leer",
       closeLabel: "Schliessen",
       isCheckoutSection: false,

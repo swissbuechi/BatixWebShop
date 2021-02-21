@@ -67,8 +67,8 @@ export default {
                     tempProduct.isAddedBtn = false;
                     tempProduct.isFavourite = false;
                     tempProduct.quantity = 1;
-                    tempProduct.ratings = Math.floor(Math.random() * (5 - 0 + 1)) + 0;
-                    tempProduct.reviews = Math.floor(Math.random() * (5 - 0 + 1)) + 0;
+                    tempProduct.ratings = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
+                    tempProduct.reviews = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
 
                     tempProducts.push(tempProduct);
                 });

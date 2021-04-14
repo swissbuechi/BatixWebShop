@@ -2,7 +2,7 @@ import createPersistedState from 'vuex-persistedstate'
 
 export default ({ store }) => {
   createPersistedState({
-    key: 'vuex',
-    paths: ['products', 'userInfo'],
+    key: 'batixwebshop',
+    paths: ['products', 'productsLoaded', 'userInfo',],
   })(store)
 }

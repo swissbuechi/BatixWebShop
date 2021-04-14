@@ -1,5 +1,8 @@
 # BatixWebShop
 
+## Demo Website
+http://test.netider.ch
+
 ## Running the App
 
 ### Production:

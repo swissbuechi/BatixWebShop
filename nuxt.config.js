@@ -46,7 +46,7 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [],
+  plugins: [{ src: '~/plugins/persistedState.client.js' }],
 
   /*
   ** Nuxt.js modules
